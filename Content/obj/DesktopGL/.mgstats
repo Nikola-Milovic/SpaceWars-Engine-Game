@@ -1,0 +1,2 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/mnt/hddstorage/files/programming/csharp/SpaceWars/Content/sprites/puppet.png","/mnt/hddstorage/files/programming/csharp/SpaceWars/Content/bin/DesktopGL/sprites/puppet.xnb","TextureProcessor","Texture2DContent",99,1109,0.1255596

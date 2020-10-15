@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "restore": {
+    "/mnt/hddstorage/files/programming/csharp/SpaceWars/SpaceWars.csproj": {}
+  },
+  "projects": {
+    "/mnt/hddstorage/files/programming/csharp/SpaceWars/SpaceWars.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/hddstorage/files/programming/csharp/SpaceWars/SpaceWars.csproj",
+        "projectName": "SpaceWars",
+        "projectPath": "/mnt/hddstorage/files/programming/csharp/SpaceWars/SpaceWars.csproj",
+        "packagesPath": "/home/nikola/.nuget/packages/",
+        "outputPath": "/mnt/hddstorage/files/programming/csharp/SpaceWars/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/nikola/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MonoGame.Content.Builder.Task": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            },
+            "MonoGame.Framework.DesktopGL": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            },
+            "Myra": {
+              "target": "Package",
+              "version": "[1.0.2.211, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
