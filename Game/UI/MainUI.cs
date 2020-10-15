@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Net;
+using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
 
@@ -17,6 +19,10 @@ namespace Gameplay.UI {
             _menuStartNewGame = new MenuItem ();
             _menuStartNewGame.Id = "_menuStartNewGame";
             _menuStartNewGame.Text = "Start New Game";
+
+            _menuStartNewGame.Selected += (s, a) => {
+                Engine.Globals.sceneManager.LoadScene (new Scenes.GameScene (), Engine.Globals.sceneManager.content);
+            };
 
             _menuOptions = new MenuItem ();
             _menuOptions.Color = Color.Orange;

@@ -1,4 +1,5 @@
-﻿using Engine.Scenes;
+﻿using Engine;
+using Engine.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -8,8 +9,6 @@ namespace SpaceWars {
     public class Main : Game {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-
-        private SceneManager sceneManager;
 
         public Main () {
             _graphics = new GraphicsDeviceManager (this);
@@ -25,7 +24,7 @@ namespace SpaceWars {
             _graphics.PreferredBackBufferWidth = 480;
             _graphics.ApplyChanges ();
 
-            sceneManager = new SceneManager ();
+            Globals.sceneManager = new SceneManager ();
 
             base.Initialize ();
         }
@@ -37,7 +36,7 @@ namespace SpaceWars {
 
             Scene scene = new Gameplay.Scenes.MainScene (); //new Gameplay.Scenes.GameScene ();
 
-            sceneManager.LoadScene (scene, this.Content);
+            Globals.sceneManager.LoadScene (scene, this.Content);
 
             base.LoadContent ();
 
@@ -49,7 +48,7 @@ namespace SpaceWars {
                 Exit ();
             // TODO: Add your update logic here
 
-            sceneManager.Update (gameTime);
+            Globals.sceneManager.Update (gameTime);
 
             base.Update (gameTime);
         }
@@ -57,7 +56,7 @@ namespace SpaceWars {
         protected override void Draw (GameTime gameTime) {
             GraphicsDevice.Clear (Color.CornflowerBlue);
 
-            sceneManager.Draw (_spriteBatch);
+            Globals.sceneManager.Draw (_spriteBatch);
             // TODO: Add your drawing code here
 
             base.Draw (gameTime);

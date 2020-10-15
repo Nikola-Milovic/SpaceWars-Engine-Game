@@ -11,6 +11,8 @@ namespace Engine.Scenes {
 
         public Scene currentScene;
 
+        public ContentManager content;
+
         public static SceneManager Instance {
             get {
                 if (instance != null) {
@@ -22,6 +24,10 @@ namespace Engine.Scenes {
         }
 
         public void LoadScene (Scene scene, ContentManager content) {
+            if (this.content == null) {
+                this.content = content;
+            }
+
             if (currentScene != null) {
                 currentScene.Dispose ();
                 currentScene = null;
