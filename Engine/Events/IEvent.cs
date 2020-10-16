@@ -4,6 +4,10 @@ namespace Engine.Events {
 
         public bool isHandeled = false;
 
+        public virtual void Handled () {
+            isHandeled = true;
+        }
+
     }
 
 }

@@ -10,6 +10,8 @@ namespace SpaceWars {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        private Engine.Input.KeyboardHandler keyboard;
+
         public Main () {
             _graphics = new GraphicsDeviceManager (this);
 
@@ -25,6 +27,8 @@ namespace SpaceWars {
             _graphics.ApplyChanges ();
 
             Globals.sceneManager = new SceneManager ();
+            Globals.eventHandler = new Engine.Events.EventHandler ();
+            keyboard = new Engine.Input.KeyboardHandler ();
 
             base.Initialize ();
         }
@@ -48,7 +52,11 @@ namespace SpaceWars {
                 Exit ();
             // TODO: Add your update logic here
 
+            keyboard.Update ();
+
             Globals.sceneManager.Update (gameTime);
+
+            Globals.eventHandler.Update ();
 
             base.Update (gameTime);
         }

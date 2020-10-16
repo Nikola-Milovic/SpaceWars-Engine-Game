@@ -5,5 +5,13 @@ namespace Engine.Events {
         // and if it is, handle it
         public abstract void onEvent (IEvent ev);
 
+        public virtual void RegisterListener () {
+            Engine.Globals.eventHandler.RegisterListener (this);
+        }
+
+        public virtual void UnregisterListener () {
+            Engine.Globals.eventHandler.UnregisterListener (this);
+        }
+
     }
 }
