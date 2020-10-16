@@ -13,6 +13,7 @@ namespace Engine.Scenes {
 
         public ContentManager content;
 
+        //Singleton
         public static SceneManager Instance {
             get {
                 if (instance != null) {
