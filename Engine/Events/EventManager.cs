@@ -20,6 +20,7 @@ namespace Engine.Events {
 
         static Queue<IEvent> eventQueue = new Queue<IEvent> ();
         static List<EventListener> listeners = new List<EventListener> ();
+        static List<EventListener> inputListeners = new List<EventListener> ();
 
         //Used to add event to the pool
         public void AddEvent (IEvent ev) {
@@ -27,22 +28,39 @@ namespace Engine.Events {
         }
 
         public void RegisterListener (EventListener listener) {
-            listeners.Add (listener);
+            if (listener is InputEventListener) {
+                inputListeners.Add (listener);
+            } else {
+                listeners.Add (listener);
+            }
         }
 
         public void UnregisterListener (EventListener listener) {
-            listeners.Remove (listener);
+            if (listener is InputEventListener) {
+                inputListeners.Remove (listener);
+            } else {
+                listeners.Remove (listener);
+            }
         }
 
         //Dispatch an event to all listeners and if someone handled it, stop
         private void DispatchEvents () {
             if (eventQueue.Count == 0) return;
             IEvent ev = eventQueue.Dequeue ();
-            foreach (EventListener listener in listeners) {
-                if (ev.isHandeled) {
-                    break;
+            if (ev is InputEvent) {
+                foreach (EventListener listener in inputListeners) {
+                    if (ev.isHandeled) {
+                        break;
+                    }
+                    listener.onEvent (ev);
                 }
-                listener.onEvent (ev);
+            } else {
+                foreach (EventListener listener in listeners) {
+                    if (ev.isHandeled) {
+                        break;
+                    }
+                    listener.onEvent (ev);
+                }
             }
         }
 

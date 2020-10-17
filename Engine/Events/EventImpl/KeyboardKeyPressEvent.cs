@@ -3,7 +3,7 @@ using Engine.Input;
 
 namespace Engine.Events {
 
-    public class KeyboardKeyPressEvent : IEvent {
+    public class KeyboardKeyPressEvent : InputEvent {
 
         public KeyboardKey key;
 

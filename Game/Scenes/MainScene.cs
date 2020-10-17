@@ -8,7 +8,7 @@ using Myra.Graphics2D.UI.Properties;
 
 namespace Gameplay.Scenes {
 
-    public class MainScene : Engine.Scenes.Scene, Engine.Events.EventListener {
+    public class MainScene : Engine.Scenes.Scene, Engine.Events.InputEventListener {
 
         private Gameplay.UI.MainMenu _mainMenu;
 
