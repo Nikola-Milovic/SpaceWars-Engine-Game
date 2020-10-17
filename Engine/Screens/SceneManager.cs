@@ -44,7 +44,9 @@ namespace Engine.Scenes {
             currentScene = null;
         }
 
-        public void Update (GameTime gameTime) { }
+        public void Update (GameTime gameTime) {
+            currentScene.Update (gameTime);
+        }
 
         public void Draw (SpriteBatch spriteBatch) {
             if (currentScene != null) {

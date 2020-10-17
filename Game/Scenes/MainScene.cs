@@ -14,6 +14,8 @@ namespace Gameplay.Scenes {
 
         private Desktop _desktop;
 
+        private bool Aisdown = false;
+
         public override void InitializeScene (ContentManager contentManager) {
             base.InitializeScene (contentManager);
 
@@ -30,17 +32,32 @@ namespace Gameplay.Scenes {
         //     content.Unload ();
         // }
 
-        public override void Update (GameTime gameTime) { }
+        public override void Update (GameTime gameTime) {
+            if (Aisdown) {
+                Debug.WriteLine ("A is down");
+            }
+        }
 
         public override void Draw (SpriteBatch spriteBatch) {
             _desktop.Render ();
         }
 
         public void onEvent (IEvent ev) {
+
             if (ev is KeyboardKeyPressEvent) {
-                Debug.WriteLine ((ev as KeyboardKeyPressEvent).key.key);
+                Debug.WriteLine ((ev as KeyboardKeyPressEvent).key + " is pressed");
+            } else if (ev is KeyboardKeyDownEvent) {
+                Debug.WriteLine ((ev as KeyboardKeyDownEvent).key + " is Down");
+                if ((ev as KeyboardKeyDownEvent).key == "A") {
+                    Aisdown = true;
+                }
+            } else if (ev is KeyboardKeyReleaseEvent) {
+                Debug.WriteLine ((ev as KeyboardKeyReleaseEvent).key + " is Released");
+                if ((ev as KeyboardKeyReleaseEvent).key == "A") {
+                    Aisdown = false;
+                }
             }
         }
-    }
 
+    }
 }

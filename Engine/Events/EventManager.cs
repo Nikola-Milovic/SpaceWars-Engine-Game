@@ -44,6 +44,7 @@ namespace Engine.Events {
         }
 
         //Dispatch an event to all listeners and if someone handled it, stop
+        //divided into input events and other events
         private void DispatchEvents () {
             if (eventQueue.Count == 0) return;
             IEvent ev = eventQueue.Dequeue ();
