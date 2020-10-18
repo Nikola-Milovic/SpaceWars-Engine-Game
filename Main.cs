@@ -10,8 +10,8 @@ namespace SpaceWars {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        private Engine.Input.KeyboardHandler keyboard;
-
+        private Engine.Input.KeyboardInput keyboard;
+        private Engine.Input.MouseInput mouse;
         public Main () {
             _graphics = new GraphicsDeviceManager (this);
 
@@ -23,12 +23,15 @@ namespace SpaceWars {
             // TODO: Add your initialization logic here
             _graphics.IsFullScreen = false;
             _graphics.PreferredBackBufferHeight = 340;
+            Globals.screenHeight = 340;
             _graphics.PreferredBackBufferWidth = 480;
+            Globals.screenWidth = 480;
             _graphics.ApplyChanges ();
 
             Globals.sceneManager = new SceneManager ();
             Globals.eventHandler = new Engine.Events.EventHandler ();
-            keyboard = new Engine.Input.KeyboardHandler ();
+            keyboard = new Engine.Input.KeyboardInput ();
+            mouse = new Engine.Input.MouseInput ();
 
             base.Initialize ();
         }
@@ -53,6 +56,7 @@ namespace SpaceWars {
             // TODO: Add your update logic here
 
             keyboard.Update ();
+            mouse.Update ();
 
             Globals.sceneManager.Update (gameTime);
 

@@ -56,7 +56,15 @@ namespace Gameplay.Scenes {
                 if ((ev as KeyboardKeyReleaseEvent).key == "A") {
                     Aisdown = false;
                 }
+            } else if (ev is LeftMouseButtonPressed) {
+                Debug.WriteLine ((ev as LeftMouseButtonPressed).mousePosition + " mouse is pressed");
+            } else if (ev is LeftMouseButtonDown) {
+                Debug.WriteLine ((ev as LeftMouseButtonDown).mousePosition + " mouse is down");
+            } else if (ev is LeftMouseButtonReleased) {
+                Debug.WriteLine ((ev as LeftMouseButtonReleased).mousePosition + " mouse is released");
             }
+
+            ////
         }
 
     }

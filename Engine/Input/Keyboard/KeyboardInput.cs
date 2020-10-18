@@ -14,15 +14,13 @@ using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace Engine.Input {
-    public class KeyboardHandler {
-
-        //Todo: Add held keys
+    public class KeyboardInput {
 
         private KeyboardState currentKbState, previousKbState;
 
         private List<Keys> downKeys = new List<Keys> ();
 
-        public KeyboardHandler () {
+        public KeyboardInput () {
 
         }
 
